@@ -9,7 +9,9 @@ import SwiftUI
 
 struct DetailView: View {
     var framework: Framework
-   @Binding var isShowingDetailView: Bool
+    @Binding var isShowingDetailView: Bool
+    @State private var isShowingSafariView = false
+    
     var body: some View {
         VStack {
             CancelButton(isShowingDetailView: $isShowingDetailView)
@@ -19,11 +21,20 @@ struct DetailView: View {
             Text(framework.description)
                 .padding()
             Spacer()
-            FrameworkButton(title: "Learn More",
-                            textColor: .white,
-                            backgroundColor: .red)
+            Button {
+                isShowingSafariView = true
+            } label: {
+                FrameworkButton(title: "Learn More",
+                                textColor: .white,
+                                backgroundColor: .red)
+            }
+            
             Spacer()
         }
+        .sheet(isPresented: $isShowingSafariView, content: {
+            SafariView(url: URL(string: framework.urlString)
+                       ?? URL(string: "https://developer.apple.com")!)
+        })
        
     }
 }
