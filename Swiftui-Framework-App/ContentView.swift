@@ -7,18 +7,56 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct FrameworkGridView: View {
+    @StateObject var viewModel = FrameworkViewModel()
+    
+    var columns: [GridItem] = [GridItem(.flexible()),
+                               GridItem(.flexible()),
+                               GridItem(.flexible())]
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView {
+            ScrollView {
+                LazyVGrid(columns: columns) {
+                    ForEach(MockData.frameworks, id: \.self) {framework in
+                        TitleView(framework: framework)
+                            .onTapGesture {
+                                viewModel.selectedFramework = framework
+                            }
+                    }
+                }
+            }
+            .navigationTitle("🍎 Framework")
         }
-        .padding()
-    }
+        .sheet(isPresented: $viewModel.isShowingDetailView, content: {
+            DetailView(framework: viewModel.selectedFramework ?? MockData.sampleFramework,
+                       isShowingDetailView: $viewModel.isShowingDetailView)
+        })
+    } 
 }
 
 #Preview {
-    ContentView()
+    FrameworkGridView()
+}
+
+
+
+
+/// Title View
+struct TitleView: View {
+    var framework: Framework
+    
+    var body: some View {
+        VStack {
+            Image(framework.imageName)
+                .resizable()
+                .frame(width: 90, height: 90)
+            Text(framework.name)
+                .font(.title2)
+                .fontWeight(.bold)
+                .scaledToFit()
+                .minimumScaleFactor(0.7)
+        }
+        .padding()
+    }
 }
