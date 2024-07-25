@@ -10,14 +10,10 @@ import SwiftUI
 struct FrameworkGridView: View {
     @StateObject var viewModel = FrameworkViewModel()
     
-    var columns: [GridItem] = [GridItem(.flexible()),
-                               GridItem(.flexible()),
-                               GridItem(.flexible())]
-    
     var body: some View {
         NavigationView {
             ScrollView {
-                LazyVGrid(columns: columns) {
+                LazyVGrid(columns: viewModel.columns) {
                     ForEach(MockData.frameworks, id: \.self) {framework in
                         TitleView(framework: framework)
                             .onTapGesture {
@@ -39,13 +35,9 @@ struct FrameworkGridView: View {
     FrameworkGridView()
 }
 
-
-
-
 /// Title View
 struct TitleView: View {
     var framework: Framework
-    
     var body: some View {
         VStack {
             Image(framework.imageName)

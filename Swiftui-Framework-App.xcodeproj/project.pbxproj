@@ -61,14 +61,12 @@
 		499CDFEF2C50D7A7001B33A7 /* Swiftui-Framework-App */ = {
 			isa = PBXGroup;
 			children = (
-				499CE0072C510725001B33A7 /* FrameworkViewModel.swift */,
-				499CE0052C50EAFE001B33A7 /* Button.swift */,
-				499CE0092C5176B1001B33A7 /* SafariViewController.swift */,
-				499CDFFE2C50DA5E001B33A7 /* Models */,
 				499CDFF02C50D7A7001B33A7 /* Swiftui_Framework_AppApp.swift */,
-				499CDFF22C50D7A7001B33A7 /* ContentView.swift */,
-				499CE0032C50EA4A001B33A7 /* DetailView.swift */,
 				499CDFF42C50D7A9001B33A7 /* Assets.xcassets */,
+				499CE0102C517C0F001B33A7 /* UikitComponents */,
+				499CE00D2C517BBA001B33A7 /* Screens */,
+				499CE00B2C517B8B001B33A7 /* Views */,
+				499CDFFE2C50DA5E001B33A7 /* Models */,
 				499CDFF62C50D7A9001B33A7 /* Preview Content */,
 			);
 			path = "Swiftui-Framework-App";
@@ -88,6 +86,56 @@
 				499CDFFF2C50DA72001B33A7 /* FrameworkModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		499CE00B2C517B8B001B33A7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				499CE00C2C517B9A001B33A7 /* Buttons */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		499CE00C2C517B9A001B33A7 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				499CE0052C50EAFE001B33A7 /* Button.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		499CE00D2C517BBA001B33A7 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				499CE00E2C517BDA001B33A7 /* FrameworkGridView */,
+				499CE00F2C517BFD001B33A7 /* DetailView */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		499CE00E2C517BDA001B33A7 /* FrameworkGridView */ = {
+			isa = PBXGroup;
+			children = (
+				499CDFF22C50D7A7001B33A7 /* ContentView.swift */,
+				499CE0072C510725001B33A7 /* FrameworkViewModel.swift */,
+			);
+			path = FrameworkGridView;
+			sourceTree = "<group>";
+		};
+		499CE00F2C517BFD001B33A7 /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				499CE0032C50EA4A001B33A7 /* DetailView.swift */,
+			);
+			path = DetailView;
+			sourceTree = "<group>";
+		};
+		499CE0102C517C0F001B33A7 /* UikitComponents */ = {
+			isa = PBXGroup;
+			children = (
+				499CE0092C5176B1001B33A7 /* SafariViewController.swift */,
+			);
+			path = UikitComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
